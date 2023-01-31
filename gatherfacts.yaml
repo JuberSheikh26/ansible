@@ -1,0 +1,8 @@
+- name: Gatheringfacts
+  hosts: all
+  tasks: 
+    - name: gatheringfacts about nodes
+      debug:
+        msg:
+          - "ip of nodes {{ansible_hostname}}"
+          - "distro of nodes {{ansible_distribution}}"
