@@ -3,10 +3,6 @@
   become: yes
   tasks:
     - name: install packages
-      ansible.builtin.package:
-        name:
-          - nginx
-          - apache2
-          - mariadb-server
-          - tree
+      package:
+        name: apache2
         state: present
