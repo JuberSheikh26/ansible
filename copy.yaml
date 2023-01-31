@@ -1,7 +1,9 @@
 - name: copy files from master to node
   hosts: all
+  become: yes
   tasks: 
     - name: running task on condition
-      debug: 
-        msg: "this task is running under condition"
-      when: ansible_distribution == "Ubuntu"
+      copy: 
+        src: /home/ubuntu/f1.txt
+        dest: /home/ubuntu/f1.pdf
+     
