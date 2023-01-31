@@ -1,0 +1,7 @@
+ - name: condition for running tasks
+   hosts: all 
+   tasks: 
+    - name: running tasks on the condition
+      debug:
+        msg: "hello"
+      when: ansible_distribution == "Ubuntu"
