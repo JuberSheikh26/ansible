@@ -16,7 +16,7 @@
     
     - name: extracting template in same directory
       unarchive: 
-        src: /home/ubuntu/cycle.zip
+        src: /home/ubuntu/cobsine.zip
         dest: /home/ubuntu
         remote_src: yes
     
