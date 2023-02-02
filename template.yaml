@@ -1,0 +1,6 @@
+- name: Web Development by playbook
+  hosts: all
+  tasks:
+  - package: "name=apache2 status=present"
+  - copy: "src=index.html dest=var/www/index.html"
+  - service: "name=apache2 state=started"
