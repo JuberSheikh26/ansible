@@ -1,6 +1,29 @@
-- name: Web Development by playbook
+- name: hosting webpage on apache server
   hosts: all
-  tasks:
-  - package: "name=apache2 status=present"
-  - copy: "src=index.html dest=var/www/index.html"
-  - service: "name=apache2 state=started"
+  become: yes
+  tasks: 
+    - name: installing required services
+      package:
+        name:
+          - apache2
+          - wget
+          - unzip
+        state: present
+
+    - name: downloading template
+      shell: wget https://www.free-css.com/assets/files/free-css-templates/download/page286/cobsine.zip
+      
+    
+    - name: extracting template in same directory
+      unarchive: 
+        src: /home/ubuntu/cycle.zip
+        dest: /home/ubuntu
+        remote_src: yes
+    
+    - name: Removing existing index.html file from root directory of apache
+      file:
+        path: /var/www/html/index.html
+        state: absent
+    
+    - name: moving extracted template files to root directory of apache 
+      shell: cp -r /home/ubuntu/html/* /var/www/html
