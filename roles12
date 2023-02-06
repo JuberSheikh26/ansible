@@ -8,7 +8,7 @@
     tomcat_url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.71/bin/apache-tomcat-9.0.71.tar.gz
     tomc_destination: /opt/
     tomcat_split: "{{tomcat_url.split('/') | last }}"
-    tomcat_folder: "{{tomcat_split | regex_replace('.tar.gz', '')}}"
+    tomcat_dir1: "{{tomcat_split | regex_replace('.tar.gz', '')}}"
   
   tasks:
 - name: installing packages for tomcat
@@ -31,4 +31,4 @@
     remote_src: yes
 
 - name: tomcat start & enable
-  shell: nohup {{tomcat_dest}}/{{tomcat_folder}}/bin/startup.sh
+  shell: nohup {{tomc_destination}}/{{tomcat_dir1}}/bin/startup.sh
