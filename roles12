@@ -27,7 +27,7 @@
 - name: extract .tar file
   unarchive:
     src: /home/ubuntu/{{tomcat_split}}
-    dest: "{{tomcat_dest}}"
+    dest: "{{tomc_destination}}"
     remote_src: yes
 
 - name: tomcat start & enable
